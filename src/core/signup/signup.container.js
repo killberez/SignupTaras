@@ -5,7 +5,7 @@ import { SignupFormContainer } from './frame/signup-form/signup-form.container';
 
 export function SignupContainer() {
     const signupFormSendData = (values) => {
-        //...
+        console.log("works")
     }
 
     const signupFormGetInitialValue = () => {
