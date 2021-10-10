@@ -10,7 +10,7 @@ export function SignupFormContainer(props) {
     return (
         <div>
             <Formik
-                initialValues={props.initialValues}
+                initialValues={props.initialValue}
                 validate={props.validation}
                 onSubmit={props.onSubmitForm}
             >

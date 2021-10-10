@@ -1,6 +1,6 @@
 import React from 'react';
 import { signupFormValidation } from './signup.validation';
-import { SIGNUP_FORM_FIELD_NAME } from './signup.type'
+import { SIGNUP_FORM_FIELD_NAME, SIGNUP_FIELD_NAME } from './signup.type'
 import { SignupFormContainer } from './frame/signup-form/signup-form.container';
 
 export function SignupContainer() {
@@ -10,14 +10,14 @@ export function SignupContainer() {
 
     const signupFormGetInitialValue = () => {
         return {
-            [SIGNUP_FORM_FIELD_NAME.LOGIN]: '',
-            [SIGNUP_FORM_FIELD_NAME.PASSWORD]: '',
+            [SIGNUP_FIELD_NAME.LOGIN]: '',
+            [SIGNUP_FIELD_NAME.PASSWORD]: '',
 
         }
     }
     return (
         <SignupFormContainer
-            initialValues={signupFormGetInitialValue()}
+            initialValue={signupFormGetInitialValue()}
             validation={signupFormValidation}
             onSubmitForm={signupFormSendData}
             fieldName={SIGNUP_FORM_FIELD_NAME}
