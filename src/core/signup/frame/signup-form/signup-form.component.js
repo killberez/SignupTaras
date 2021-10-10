@@ -25,7 +25,7 @@ export function SignupFormComponent(props) {
         <div>
             <form onSubmit={handleSubmit}>
                 <input
-                    name={fieldName[fieldLogin]}
+                    name={fieldLogin}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values[fieldLogin]}
@@ -33,7 +33,7 @@ export function SignupFormComponent(props) {
                 {isFieldError(fieldLogin)}
                 <input
                     type="password"
-                    name={filedName[fieldPassword]}
+                    name={fieldPassword}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values[fieldPassword]}
