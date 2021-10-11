@@ -22,7 +22,8 @@ export function FieldPrimary(props: FieldPrimaryPropsType) {
             <Input
                 onChange={onChange}
                 onBlur={onBlur}
-                value={name}
+                value={value}
+                name={name}
                 placeholder={text(placeholderTid)}
             />
             {error && <ErrorMessage>{error}</ErrorMessage>}
