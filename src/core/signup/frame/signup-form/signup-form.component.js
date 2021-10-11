@@ -1,4 +1,9 @@
 import React from 'react';
+import styled from 'styled-components'
+import { FieldPrimary } from '../../../../lib/elements/field'
+import { FieldLayout } from '../../../../lib/elements/layout'
+import { Button } from '../../../../lib/elements/button'
+
 
 export function SignupFormComponent(props) {
     const {
@@ -22,27 +27,40 @@ export function SignupFormComponent(props) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    name={fieldLogin}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values[fieldLogin]}
-                />
-                {isFieldError(fieldLogin)}
-                <input
-                    type="password"
-                    name={fieldPassword}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values[fieldPassword]}
-                />
-                {isFieldError(fieldPassword)}
-                <button type="submit" disabled={isSubmitting}>
+        <form onSubmit={handleSubmit}>
+            <Container>
+                <FieldLayout>
+                    <FieldPrimary
+                        titleTid="SIGNUP.SIGNUP_FORM.FIELD.LOGIN.TITLE"
+                        placeholderTid="SIGNUP.SIGNUP_FORM.FIELD.LOGIN.PLACEHOLDER"
+                        name={fieldLogin}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values[fieldLogin]}
+                        error={isFieldError(fieldLogin)}
+                    />
+                    <FieldPrimary
+                        type="password"
+                        titleTid="SIGNUP.SIGNUP_FORM.FIELD.PASSWORD.TITLE"
+                        placeholderTid="SIGNUP.SIGNUP_FORM.FIELD.PASSWORD.PLACEHOLDER"
+                        name={fieldPassword}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values[fieldPassword]}
+                        error={isFieldError(fieldPassword)}
+                    />
+                </FieldLayout>
+                <Button type="submit" disabled={isSubmitting}>
                     Submit
-                </button>
-            </form>
-        </div>
+                </Button>
+            </Container>
+        </form>
     )
 }
+
+
+
+const Container = styled.div`
+    display: grid;
+    gap: 12px;
+`;
