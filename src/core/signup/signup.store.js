@@ -1,31 +1,29 @@
 import { SIGNUP_ACTION_TYPE } from './signup.type'
+import { initRequestState, setRequestPending, setRequestSuccess, setRequestError } from '../../main/store/store.service'
 
 const initialState = {
-    signupForm: {
-        
-    }
+    signupForm: initRequestState(),
 };
 
 export function signupStore(state = initialState, action) {
     switch (action.type) {
-        case SIGNUP_ACTION_TYPE.SIGNUP_FORM_LOADING:
+        case SIGNUP_ACTION_TYPE.SIGNUP_FORM_PENDING:
             return {
                 ...state,
+                signupForm: setRequestPending(state.signupForm)
             };
 
-        case SIGNUP_ACTION_TYPE.SIGNUP_FORM_LOADED:
+        case SIGNUP_ACTION_TYPE.SIGNUP_FORM_SUCCESS:
             return {
                 ...state,
+                signupForm: setRequestSuccess(state.signupForm),
+
             };
 
         case SIGNUP_ACTION_TYPE.SIGNUP_FORM_ERROR:
             return {
                 ...state,
-            };
-
-        case SIGNUP_ACTION_TYPE.SIGNUP_FORM_RESET:
-            return {
-                ...state,
+                signupForm: setRequestError(state.signupForm, action.message),
             };
 
         default:

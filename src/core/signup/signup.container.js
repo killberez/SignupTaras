@@ -2,10 +2,14 @@ import React from 'react';
 import { signupFormValidation } from './signup.validation';
 import { SIGNUP_FORM_FIELD_NAME, SIGNUP_FIELD_NAME } from './signup.type'
 import { SignupFormContainer } from './frame/signup-form/signup-form.container';
+import { signupFormUploadData } from './signup.action'
+import { useDispatch } from 'react-redux';
 
 export function SignupContainer() {
+    const dispatch = useDispatch()
+
     const signupFormSendData = (values) => {
-        console.log("works")
+        dispatch(signupFormUploadData(values))
     }
 
     const signupFormGetInitialValue = () => {
@@ -15,6 +19,7 @@ export function SignupContainer() {
 
         }
     }
+    
     return (
         <SignupFormContainer
             initialValue={signupFormGetInitialValue()}
