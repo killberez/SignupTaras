@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components'
 import { FieldPrimary } from '../../../../lib/elements/field'
 import { FieldLayout } from '../../../../lib/elements/layout'
-import { Button } from '../../../../lib/elements/button'
+import { SubmitButton } from '../../../../lib/elements/button'
 
 
 export function SignupFormComponent(props) {
     const {
         fieldLogin,
         fieldPassword,
+        submitButton,
         values,
         errors,
         touched,
@@ -50,9 +51,7 @@ export function SignupFormComponent(props) {
                         error={isFieldError(fieldPassword)}
                     />
                 </FieldLayout>
-                <Button type="submit" disabled={isSubmitting}>
-                    Submit
-                </Button>
+                <SubmitButton text="SIGNUP.SIGNUP_FORM.BUTTON.TITLE" type="submit" disabled={isSubmitting} />
             </Container>
         </form>
     )
