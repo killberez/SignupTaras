@@ -9,6 +9,10 @@
                 "TITLE": "Password",
                 "PLACEHOLDER": "Your password"
             }
+        },
+        "BUTTON": {
+            "TITLE": "Submit",
+            "PLACEHOLDER": "Submit"
         }
     }
 }
